@@ -13,7 +13,7 @@ using namespace std;
 using namespace N;
 
 
-// БЫСТРАЯ сортировка
+// Р‘Р«РЎРўР РђРЇ СЃРѕСЂС‚РёСЂРѕРІРєР°
 void quicksort(our_class* mas,int first, int last) {
 	our_class mid, count;
 	int f = first;
@@ -42,13 +42,13 @@ void quicksort(our_class* mas,int first, int last) {
 	}
 }
 
-//сортировка ПУЗЫРЬКОМ
+// СЃРѕСЂС‚РёСЂРѕРІРєР° РџРЈР—Р«Р Р¬РљРћРњ
 void bubble(our_class* mas, int length) {
 	our_class temp;
 	for (int i = 0; i < length - 1; i++) {
 		for (int j = 0; j < length - i - 1; j++) {
 			if (mas[j] > mas[j + 1]) {
-				// меняем элементы местами
+				// РјРµРЅСЏРµРј СЌР»РµРјРµРЅС‚С‹ РјРµСЃС‚Р°РјРё
 				temp = mas[j];
 				mas[j] = mas[j + 1];
 				mas[j + 1] = temp;
@@ -57,7 +57,7 @@ void bubble(our_class* mas, int length) {
 	}
 }
 
-// сортировка ВСТАВКА
+// СЃРѕСЂС‚РёСЂРѕРІРєР° Р’РЎРўРђР’РљРђ
 void vstavka(our_class* mas, int length) {
 	our_class temp;
 	int item;
@@ -76,10 +76,10 @@ void vstavka(our_class* mas, int length) {
 
 int main() {
 	setlocale(LC_ALL, "Russian");
-// считывание файла в vector Data
+// СЃС‡РёС‚С‹РІР°РЅРёРµ С„Р°Р№Р»Р° РІ vector Data
 
 	vector<string> Data;
-	ifstream In("D:\\19вариант\\DataCpp.txt");
+	ifstream In("D:\\19РІР°СЂРёР°РЅС‚\\DataCpp.txt");
 	string str;
 	string s;
 	while (!In.eof())
@@ -88,7 +88,7 @@ int main() {
 		Data.push_back(str);
 	}
 	
-	int n = Data.size(); // количество строк в файле
+	int n = Data.size(); // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РІ С„Р°Р№Р»Рµ
 	cout << n << "\n";
 	int sep[9] = { 100, 500,1000,10000, 20000, 40000, 50000, 70000, n};
 	//int sep[1] = { 20000 };
@@ -97,26 +97,22 @@ int main() {
 
 	for (int k = 0; k < 9; k++) {
 		length = sep[k];
-		N::our_class* cls = new N::our_class[length]; // динамический массив
+		N::our_class* cls = new N::our_class[length]; // РґРёРЅР°РјРёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ
 		for (int i = 0; i < length; i++) {
 			cls[i].set_all(Data[i]);
 
 		}
 
-		float start_time = clock(); // начало отсчета времени
+		float start_time = clock(); // РЅР°С‡Р°Р»Рѕ РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 
-		//bubble(cls, length);
-		//vstavka(cls, length);
+		bubble(cls, length);
+		vstavka(cls, length);
 		quicksort(cls, 0, length - 1);
 
-		float end_time = clock(); // конец отсчета времени
-
-		// вывод массива
-		for (int i = 0; i < length; i++) {
-			cout << cls[i].showSorted() << "\n";
-		}
+		float end_time = clock(); // РєРѕРЅРµС† РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
+		
 		delete[] cls;
-		cout << "Для n = " << sep[k] << " время выполнения: " << (end_time - start_time) / CLOCKS_PER_SEC << "\n";
+		cout << "Р”Р»СЏ n = " << sep[k] << " РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ: " << (end_time - start_time) / CLOCKS_PER_SEC << "\n";
 	}
 
 }
