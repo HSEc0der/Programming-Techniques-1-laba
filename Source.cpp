@@ -5,11 +5,11 @@
 #include <vector>
 
 using namespace std;
-// конструктор
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 N::our_class::our_class(const string& str) {
-	size_t size = str.size(); // длина подаваемой на вход строки
+	size_t size = str.size(); // РґР»РёРЅР° РїРѕРґР°РІР°РµРјРѕР№ РЅР° РІС…РѕРґ СЃС‚СЂРѕРєРё
 	int i_left = 0; 
-	int num_space = 5; // число пробелов
+	int num_space = 5; // С‡РёСЃР»Рѕ РїСЂРѕР±РµР»РѕРІ
 	int i_right;
 	vector<int> v;
 	for (int i = 0; i < size; i++) {
@@ -28,7 +28,7 @@ N::our_class::our_class(const string& str) {
 }
 
 
-// конструктор по умолчанию
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 N::our_class::our_class() {
 	home = 0;
 	flat = 0;
@@ -38,11 +38,11 @@ N::our_class::our_class() {
 };
 
 
-// функция, работает так же, как и конструктор
+// С„СѓРЅРєС†РёСЏ, СЂР°Р±РѕС‚Р°РµС‚ С‚Р°Рє Р¶Рµ, РєР°Рє Рё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 void N::our_class::set_all(string& str) {
-	size_t size = str.size(); // длина подаваемой на вход строки
+	size_t size = str.size(); // РґР»РёРЅР° РїРѕРґР°РІР°РµРјРѕР№ РЅР° РІС…РѕРґ СЃС‚СЂРѕРєРё
 	int i_left = 0;
-	int num_space = 5; // число пробелов
+	int num_space = 5; // С‡РёСЃР»Рѕ РїСЂРѕР±РµР»РѕРІ
 	int i_right;
 	vector<string> v;
 	for (int i = 0; i < size; i++) {
@@ -61,7 +61,7 @@ void N::our_class::set_all(string& str) {
 	all_string = str;
 }
 
-// показывает строку, которая была на входе
+// РїРѕРєР°Р·С‹РІР°РµС‚ СЃС‚СЂРѕРєСѓ, РєРѕС‚РѕСЂР°СЏ Р±С‹Р»Р° РЅР° РІС…РѕРґРµ
 string N::our_class::showAll() {
 	return all_string;
 }
@@ -69,7 +69,7 @@ string N::our_class::showSorted() {
 	return to_string(home) + " " + to_string(flat) + " " + to_string(s) + " " + fio;
 }
  
-//// перегрузка оператора сравнения БОЛЬШЕ
+// РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ Р‘РћР›Р¬РЁР•
 bool N::operator>(const our_class& left, const our_class& right) {
 	if ((left.s < right.s) || (left.s == right.s && left.home > right.home) || (left.s == right.s && left.home == right.home && left.flat > right.flat)
 		|| (left.s == right.s && left.home == right.home && left.flat == right.flat && left.fio > right.fio)) {
@@ -81,7 +81,7 @@ bool N::operator>(const our_class& left, const our_class& right) {
 };
 
 
-// перегрузка оператора сравнения БОЛЬШЕ ИЛИ РАВНО
+// РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ Р‘РћР›Р¬РЁР• РР›Р Р РђР’РќРћ
 bool N::operator>=(const our_class& left, const our_class& right) {
 	if ((left.s < right.s) || (left.s == right.s && left.home > right.home) || (left.s == right.s && left.home == right.home && left.flat > right.flat)
 		|| (left.s == right.s && left.home == right.home && left.flat == right.flat && left.fio > right.fio) || (left.s == right.s &&
@@ -94,7 +94,7 @@ bool N::operator>=(const our_class& left, const our_class& right) {
 };
 
 
-// перегрузка оператора МЕНЬШЕ
+// РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РњР•РќР¬РЁР•
 bool N::operator<(const our_class& left, const our_class& right) {
 	if ((left.s > right.s) || (left.s == right.s && left.home < right.home) || (left.s == right.s && left.home == right.home && left.flat < right.flat)
 		|| (left.s == right.s && left.home == right.home && left.flat == right.flat && left.fio < right.fio)) {
@@ -106,7 +106,7 @@ bool N::operator<(const our_class& left, const our_class& right) {
 };
 
 
-//перегрузка оператора МЕНЬШЕ ИЛИ РАВНО
+//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РњР•РќР¬РЁР• РР›Р Р РђР’РќРћ
 bool N::operator<=(const our_class& left, const our_class& right) {
 	if ((left.s > right.s) || (left.s == right.s && left.home < right.home) || (left.s == right.s && left.home == right.home && left.flat < right.flat)
 		|| (left.s == right.s && left.home == right.home && left.flat == right.flat && left.fio < right.fio) ||
