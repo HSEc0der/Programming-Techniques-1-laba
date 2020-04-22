@@ -34,6 +34,10 @@ namespace N {
 
 			//возвращает всю строку
 			std::string AllString();
+			
+			//возвращает только те поля, по которым была сортировка
+			std::string showSorted();
+}
 
 			//работает также, как и конструктор
 			void set_all(const std::string & str);
