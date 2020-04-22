@@ -80,6 +80,10 @@ void N::our_class::set_all(const std::string& str) {
 	all_string = str;
 }
 
+std::string N::our_class::showSorted() {
+	return std::to_string(home) + " " + std::to_string(flat) + " " + std::to_string(s) + " " + fio;
+}
+
 //// перегрузка оператора сравнения БОЛЬШЕ
 bool N::operator>(const our_class& left, const our_class& right) {
 	if ((left.s < right.s) || (left.s == right.s && left.home > right.home) || (left.s == right.s && left.home == right.home && left.flat > right.flat)
