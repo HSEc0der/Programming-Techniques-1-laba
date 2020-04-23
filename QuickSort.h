@@ -3,7 +3,7 @@
 
 #include "Header.h"
 
-void quicksort(N::our_class* mas, int first, int last) {
+void qsort(N::our_class* mas, int first, int last) {
 	N::our_class mid, count;
 	int f = first;
 	int l = last;
@@ -24,11 +24,15 @@ void quicksort(N::our_class* mas, int first, int last) {
 		}
 	} while (f < l);
 	if (first < l) {
-		quicksort(mas, first, l);
+		qsort(mas, first, l);
 	}
 	if (f < last) {
-		quicksort(mas, f, last);
+		qsort(mas, f, last);
 	}
+}
+
+void quicksort(N::our_class * mas, int length){
+	qsort(mas, 0, length - 1);
 }
 
 
