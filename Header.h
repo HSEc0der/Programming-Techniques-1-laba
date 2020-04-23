@@ -5,13 +5,11 @@
 namespace N {
 	class our_class {
 		private:
-			std::string all_string; // вся строка, которая подается на вход
-			// в таком порядке строка содержит данные
 			int home;
 			int flat;
-			//int room;
+			int room;
 			int s;
-			//int people
+			int people;
 			std::string fio;
 		public:
 			// конструктор
@@ -34,10 +32,9 @@ namespace N {
 
 			//возвращает всю строку
 			std::string AllString();
-			
-			//возвращает только те поля, по которым была сортировка
+
+			// выводит только те поля, по которым была сортировка
 			std::string showSorted();
-}
 
 			//работает также, как и конструктор
 			void set_all(const std::string & str);
@@ -63,7 +60,8 @@ namespace N {
 				flat = other.flat;
 				s = other.s;
 				fio = other.fio;
-				all_string = other.all_string;
+				room = other.room;
+				people = other.people;
 				return *this;
 			}
 	}; // end our_class
